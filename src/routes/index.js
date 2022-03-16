@@ -5,6 +5,7 @@ const hotel = require('./hotel');
 const room = require('./room');
 const bill = require('./bill');
 const reservation = require('./reservation');
+const login = require('./login');
 
 
 
@@ -14,6 +15,7 @@ router.use('/hotels', hotel);
 router.use('/rooms', room);
 router.use('/bills', bill);
 router.use('/reservation', reservation);
+router.use('/login', login);
 
 
 
