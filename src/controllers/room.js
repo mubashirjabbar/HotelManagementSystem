@@ -11,7 +11,7 @@ async function addRoom(req, res) {
         booking_status: booking_status,
       });
     } catch (Excp) {
-      console.log({ Excp });
+      // console.log({ Excp });
       dbResp = {
         message: Excp.errors[0].message,
       };

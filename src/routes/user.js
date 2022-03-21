@@ -5,8 +5,6 @@ const {
   getAllUsers,
 } = require("../controllers");
 
-
-
 router.route("/").get(getAllUsers);
 router.route("/").post(addUser);
 

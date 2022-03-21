@@ -12,7 +12,7 @@ async function addUser(req, res) {
       role: role,
     });
   } catch (Excp) {
-    console.log({ Excp });
+    // console.log({ Excp });
     dbResp = {
       message: Excp.errors[0].message,
     };

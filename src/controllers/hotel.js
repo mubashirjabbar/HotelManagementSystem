@@ -10,7 +10,7 @@ async function addHotel(req, res) {
         contact: contact,
       });
     } catch (Excp) {
-      console.log({ Excp });
+      // console.log({ Excp });
       dbResp = {
         message: Excp.errors[0].message,
       };

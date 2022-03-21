@@ -48,6 +48,7 @@ module.exports = (sequelize, DataTypes) => {
 
 
     bill_amount: DataTypes.INTEGER
+    
   }, {
     sequelize,
     modelName: 'Bill',

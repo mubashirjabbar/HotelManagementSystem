@@ -5,8 +5,6 @@ const {
   getAllHotels,
 } = require("../controllers");
 
-
-
 router.route("/").get(getAllHotels);
 router.route("/").post(addHotel);
 

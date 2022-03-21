@@ -6,7 +6,6 @@ const {
 } = require("../controllers");
 
 
-
 router.route("/").post(addReservation);
 router.route("/:id").get(getReservationByID);
 

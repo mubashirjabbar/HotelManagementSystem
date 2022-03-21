@@ -5,8 +5,6 @@ const {
   getBillByID,
 } = require("../controllers");
 
-
-
 router.route("/").post(addBill);
 router.route("/:id").get(getBillByID);
 

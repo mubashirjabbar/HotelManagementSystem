@@ -6,7 +6,6 @@ const {
 } = require("../controllers");
 
 
-
 router.route("/").get(getAllRooms);
 router.route("/").post(addRoom);
 

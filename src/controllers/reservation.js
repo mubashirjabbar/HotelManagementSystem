@@ -11,7 +11,7 @@ async function addReservation(req, res) {
       bill_id: bill_id,
     });
   } catch (Excp) {
-    console.log({ Excp });
+    // console.log({ Excp });
     dbResp = {
       message: Excp.errors[0].message,
     };
