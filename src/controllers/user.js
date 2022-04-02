@@ -20,6 +20,36 @@ async function addUser(req, res) {
   res.send(dbResp);
 }
 
+async function updateUser(req, res) {
+  let { id } = req.params;
+  let { name, password,contact } = req.body;
+  let dbResp;
+
+  try {
+    dbResp = await User.update(
+      {
+        name: name,
+        password: password,
+        contact: contact,
+      },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
+  } catch (Excp) {
+    console.log({ Excp });
+    dbResp = {
+      message: Excp.errors[0].message,
+    };
+  }
+  dbResp[0] === 1
+    ? res.send({ message: "User profile successfully updated" })
+    : res.send({ message: "Something went wrong" }).sendStatus(400);
+}
+
+
 async function getAllUsers(req, res) {
   const dbResp = await User.findAll();
   res.send(dbResp);
@@ -28,4 +58,5 @@ async function getAllUsers(req, res) {
 module.exports = {
   addUser,
   getAllUsers,
+  updateUser
 };

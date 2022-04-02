@@ -1,4 +1,4 @@
-const { Reservation } = require("../models/index");
+const { Reservation, Hotel,Room,Bill } = require("../models/index");
 
 async function addReservation(req, res) {
   let { user_id, room_id, hotel_id, bill_id } = req.body;
@@ -21,11 +21,28 @@ async function addReservation(req, res) {
 
 async function getReservationByID(req, res) {
   let { id } = req.params;
+  const options = {
+    include: [
+      {
+        model: Hotel,
+        attributes: ["id", "name","contact"],
+      },
+      {
+        model: Room,
+        attributes: ["id", "room_number"],
+      },
+      {
+        model: Bill,
+        attributes: ["id", "bill_amount"],
+      },
+    ],
+    where: { user_id: id },
+  };
+  const dbResp = await Reservation.findAll(options);
 
-  const dbResp = await Reservation.findByPk(id);
   dbResp
     ? res.send(dbResp)
-    : res.send({ message: "Reservation not found!" }).status(404);
+    : res.status(404).send({ message: "Reservation not found!" });
 }
 
 module.exports = {

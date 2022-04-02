@@ -1,4 +1,4 @@
-const { Bill } = require("../models/index");
+const { Bill,User } = require("../models/index");
 
 async function addBill(req, res) {
   let { user_id, bill_data, bill_amount } = req.body;
@@ -21,7 +21,14 @@ async function addBill(req, res) {
 async function getBillByID(req, res) {
   let { id } = req.params;
 
-  const dbResp = await Bill.findByPk(id);
+  const dbResp = await Bill.findOne({
+    include: {
+      model:User
+    },
+    where: {
+      id
+    }
+  });
   dbResp
     ? res.send(dbResp)
     : res.send({ message: "Bill not found!" }).status(404);

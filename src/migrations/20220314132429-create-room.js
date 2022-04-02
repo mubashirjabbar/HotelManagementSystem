@@ -12,7 +12,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       hotel_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Hotels',
+          key: 'id'
+        }
       },
       booking_status: {
         type: Sequelize.BOOLEAN

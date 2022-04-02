@@ -6,6 +6,7 @@ const room = require('./room');
 const bill = require('./bill');
 const reservation = require('./reservation');
 const login = require('./login');
+const signup = require('./signup');
 
 
 
@@ -16,6 +17,8 @@ router.use('/rooms', room);
 router.use('/bills', bill);
 router.use('/reservation', reservation);
 router.use('/login', login);
+router.use('/signup', signup);
+
 
 
 module.exports = router;

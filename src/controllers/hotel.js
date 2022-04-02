@@ -19,6 +19,19 @@ async function addHotel(req, res) {
 
 }
 
+
+async function getHotalByID(req, res) {
+  let { id } = req.params;
+
+  const dbResp = await Hotel.findOne({ where: { id: id } });
+  
+  dbResp
+    ? res.send(dbResp)
+    : res.status(404).send({ message: "Hotel not found!" });
+}
+
+
+
 async function getAllHotels(req, res) {
     const dbResp = await Hotel.findAll();
     res.send(dbResp);
@@ -28,5 +41,5 @@ async function getAllHotels(req, res) {
 module.exports = {
     addHotel,
     getAllHotels,
-
+    getHotalByID,
 };

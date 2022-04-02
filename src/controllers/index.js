@@ -4,6 +4,7 @@ const room = require("./room");
 const bill = require("./bill");
 const reservation = require("./reservation");
 const login = require("./login");
+const signup = require("./signup");
 
 module.exports = {
   ...users,
@@ -13,4 +14,5 @@ module.exports = {
   ...reservation,
 
   ...login,
+  ...signup,
 };
