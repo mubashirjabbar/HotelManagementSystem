@@ -32,6 +32,15 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      price: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Please enter your hotel price",
+          },
+        },
+      },
     },
     {
       sequelize,

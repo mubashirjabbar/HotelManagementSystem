@@ -22,14 +22,13 @@ async function addUser(req, res) {
 
 async function updateUser(req, res) {
   let { id } = req.params;
-  let { name, password,contact } = req.body;
+  let { name,contact } = req.body;
   let dbResp;
 
   try {
     dbResp = await User.update(
       {
         name: name,
-        password: password,
         contact: contact,
       },
       {
@@ -39,7 +38,6 @@ async function updateUser(req, res) {
       }
     );
   } catch (Excp) {
-    console.log({ Excp });
     dbResp = {
       message: Excp.errors[0].message,
     };

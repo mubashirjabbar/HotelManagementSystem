@@ -2,15 +2,15 @@ const { Hotel } = require("../models/index");
 
 
 async function addHotel(req, res) {
-    let { name, contact, } = req.body;
+    let { name, contact, price} = req.body;
     let dbResp;
     try {
       dbResp = await Hotel.create({
         name: name,
         contact: contact,
+        price: price,
       });
     } catch (Excp) {
-      // console.log({ Excp });
       dbResp = {
         message: Excp.errors[0].message,
       };

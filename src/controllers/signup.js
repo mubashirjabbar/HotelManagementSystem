@@ -13,15 +13,11 @@ async function signupUser(req, res) {
     });
       
   } catch (Excp) {
-    // console.log({ Excp });
     dbResp = {
       message: Excp.errors[0].message === "email must be unique" ? 'This email is already exist':dbResp,
     };
       status=400
   }
-
-    console.log(dbResp.message);
-//   console.log({status});
   res.status(status).send(dbResp);
     
 }

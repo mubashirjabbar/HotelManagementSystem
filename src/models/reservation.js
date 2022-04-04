@@ -62,6 +62,15 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      reservation_date: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Please provide reservation date",
+          },
+        },
+      },
     },
     {
       sequelize,

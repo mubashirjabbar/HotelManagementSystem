@@ -1,7 +1,7 @@
 const { Reservation, Hotel,Room,Bill } = require("../models/index");
 
 async function addReservation(req, res) {
-  let { user_id, room_id, hotel_id, bill_id } = req.body;
+  let { user_id, room_id, hotel_id, bill_id, reservation_date } = req.body;
   let dbResp;
   try {
     dbResp = await Reservation.create({
@@ -9,9 +9,9 @@ async function addReservation(req, res) {
       room_id: room_id,
       hotel_id: hotel_id,
       bill_id: bill_id,
+      reservation_date:reservation_date
     });
   } catch (Excp) {
-    // console.log({ Excp });
     dbResp = {
       message: Excp.errors[0].message,
     };
